@@ -1,10 +1,9 @@
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.print("\033[H\033[2J");
         Set<Integer> squares = new HashSet<>();
         Set<Integer> cubes = new HashSet<>();
 
@@ -12,7 +11,7 @@ public class Main {
         for (int i = 1; i <= 10; i++) {
             // Adding squares to the the squares set
             squares.add(i * i);
-            // Adding cubes to the cubics set
+            // Adding cubes to the cubic set
             cubes.add(i * i * i);
         }
         //Adding all of the elements from the square set to the squaresOnly set same, this is the same for each of these sets with the respective set being added
@@ -38,17 +37,17 @@ public class Main {
 
         printSet(sets,setsDescription);
 
-        System.out.println("The intersection set contains " + intersection.size() + " elements");
+        System.out.printf("The intersection set contains %s elements\n",intersection.size());
         for (int i : intersection) {
-            System.out.println("\t" +i + " is a member of both sets as it is " + Math.sqrt(i) + " squared, and is " + Math.cbrt(i) + " cubed.");
+            System.out.printf("\t %s is a member of both sets as it is %s squared, and is %s cubed.\n",i,Math.sqrt(i),Math.cbrt(i));
         }
     }
 
     private static void printSet(Set[] sets, String[] setsDescription){
         for(int i = 0; i < sets.length-1; i++){
-            System.out.println(setsDescription[i]);
+            System.out.printf("%s\n\t",setsDescription[i]);
             for(Object set : sets[i]){
-                System.out.print(set + " ");
+                System.out.printf("%s ",set);
             }
             System.out.println("\n");
         }
